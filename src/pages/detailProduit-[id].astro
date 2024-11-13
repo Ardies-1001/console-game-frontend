@@ -1,0 +1,116 @@
+---
+import CardProduct from '../components/produits/cardProduct.astro';
+import Layout from "../layouts/Layout.astro";
+
+const response = await fetch(`${import.meta.env.STRAPI_URL}/api/produits/${Astro.params.id}?populate=*`);
+const { data: produit } = await response.json();
+---
+
+<Layout title={produit.attributes.titre}>
+    <main class="main">
+
+        <section class="control section grid">    
+            <div class="about-content-1">
+              <div class="img-data-1 delayMedium">
+                <img src={`${import.meta.env.STRAPI_URL}${produit.attributes.image.data[0].attributes.url}`} alt={produit.attributes.titre}>
+              </div>
+    
+              <div class="about-data-1 ">
+               <h1 class="section-title about-title-1 delaySmallBottom">{produit.attributes.titre} à <span class="section-span">{produit.attributes.prix} {import.meta.env.PUBLIC_DEVISE}</span></h1> 
+               <p class="section-description about-description-1 delayMediumBottom">
+                {produit.attributes.description.map((desc:any) => 
+                    desc.children.map((child:any) => child.text).join(' ')
+                ).join('\n')}
+               </p>
+               <a class="btn-buy-now" href="">Contact <i class="uil uil-arrow-right btn"></i></a>
+              </div>
+            </div>
+
+            <div class="thumbnail-images" style="display: flex; flex-wrap: wrap;">
+                {produit.attributes.image.data.map((image:any) => (
+                    <div class="thumbnail" style="border-radius: 50%; overflow: hidden; width: 100px; height: 100px; margin: 5px; border: 2px solid white;">
+                        <img src={`${import.meta.env.STRAPI_URL}${image.attributes.url}`} alt={produit.attributes.titre} style="width: 100%; height: auto; object-fit: cover;" />
+                    </div>
+                ))}
+            </div>
+          </section>
+      
+          <!--------------- PRODUCT ------------------------>
+         <section class="functions-container section grid">
+          <div class="function-content">
+            <h2 class="function-title section-title"  style="margin-top: 40px;">Nos <span class="section-span">Fonctionnalités</span></h2>
+            <p class="function-description">Série 2 du contrôleur sans fil PlayStation</p>    
+            <div class="card-content">
+              <div class="card">
+                <img class="icone-animation" src="/images/bx-rocket.png" alt="icone de foguete azul">
+                <h3>VELOCITY</h3>
+                <div class="line-function"></div><div class="circle-function"></div>
+              </div>
+    
+              <div class="card">
+                <img class="icone-animation" src="/images/bxs-battery-charging.png" alt="icone de bateria de celular azul">
+                <h3>DURABLE</h3>
+                <div class="line-function"></div><div class="circle-function"></div>
+              </div>
+    
+              <div class="card">
+                <img class="icone-animation" src="/images/bx-bluetooth.png" alt="icone do Bluetooth azul">
+                <h3>bluetooth</h3>
+                <div class="line-function"></div><div class="circle-function"></div>
+              </div>
+            </div>
+          </div>
+         </section>
+
+        <!-- <section class="product-header">
+            <h1 class="product-title">{produit.attributes.titre}</h1>
+            <p class="product-price">{produit.attributes.prix} {import.meta.env.PUBLIC_DEVISE}</p>
+        </section>
+        <section class="product-images">
+            <img class="main-image" src={`${import.meta.env.STRAPI_URL}${produit.attributes.image.data[0].attributes.url}`} alt={produit.attributes.titre} />
+            <div class="thumbnail-images">
+                {produit.attributes.image.data.map((image:any) => (
+                    <img class="thumbnail" src={`${import.meta.env.STRAPI_URL}${image.attributes.url}`} alt={produit.attributes.titre} />
+                ))}
+            </div>
+        </section>
+        <section class="product-description">
+            <h2>Description</h2>
+            <p>{produit.attributes.description}</p>
+        </section>
+        <section class="product-rating">
+            <h2>Avis</h2>
+            <div class="rating">
+                {Array.from({ length: produit.attributes.rating }).map((_, index) => (
+                    <img src="/images/estrela.png" alt="étoile d'évaluation" />
+                ))}
+                <p>({produit.attributes.reviews} avis)</p>
+            </div>
+        </section>
+        <section class="product-actions">
+            <button class="btn-add-to-cart">Ajouter au panier</button>
+            <button class="btn-buy-now">Acheter maintenant</button>
+        </section> -->
+
+        
+    </main>
+</Layout>
+
+<style>
+    .btn-add-to-cart, .btn-buy-now {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-add-to-cart:hover, .btn-buy-now:hover {
+    background-color: #e64a19;
+}
+
+
+</style>

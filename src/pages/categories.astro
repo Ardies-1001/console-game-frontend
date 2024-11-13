@@ -1,0 +1,32 @@
+---
+import CardCategory from '../components/categories/cardCategory.astro';
+import Layout from "../layouts/Layout.astro";
+
+const response = await fetch(`${import.meta.env.STRAPI_URL}/api/categories?populate=*`);
+const { data: categories } = await response.json();
+---
+
+<Layout title="Catégories">
+
+    <main class="main">
+        <section class="top section grid" >
+            <div class="top-content" style="margin-top:23%">
+                <h2 class="top-title section-title delaySmall">Nos Catégories de <span class="section-span">manettes</span></h2>
+                <p class="top-description delayMedium">Explorez notre sélection de contrôleurs sans fil Elite PlayStation Series 2 pour une expérience de jeu optimale.</p>
+                <div class="top-content-card">                    
+                    { categories.map((category:any) => (
+                        <CardCategory 
+                            imageSrc={`${import.meta.env.STRAPI_URL}${category.attributes.image.data[0].attributes.url}`}
+                            altText="contrôleur PlayStation Godfather" 
+                            title={category.attributes.titre} 
+                            rating={5} 
+                            reviews={15} 
+                            link={`/categories/${category.id}`}
+                        />
+                    )) }
+                </div>
+            </div>
+        </section>
+    </main>
+
+</Layout>   

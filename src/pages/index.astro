@@ -1,0 +1,158 @@
+---
+import CardProduct from '../components/produits/cardProduct.astro';
+import Layout from '../layouts/Layout.astro';
+
+---
+
+<Layout title="Accueil">
+	<main class="main">
+		<!--------------- HOME ------------------------>
+			<section class="home-container section grid" id="home"> 
+				<div class="home-content">
+					<div class="home-data">
+						<h1 class="home-titulo section-title delaySmall">PlayStation <br>
+							<span class="controller section-span">Contrôleur</span></h1>
+						<p class="home-description delayMedium">Concept de contrôleur PlayStation hyper ergonomique <br> pour une expérience de jeu plus confortable</p>
+						
+						<div class="home-button">
+							<a class="btn-about-more delayLarge" href="/a-propos">En savoir plus</a>
+							<a class="btn-explore delayLargeTopExtra" href="/produit">Explorer les produits <i class="uil uil-arrow-right"></i></a>
+						</div>
+					</div>
+					<div class="home-data-img ">
+						<img class="home-img desktop" src="/images/controller.png" alt="contrôleur PlayStation 4 noir, version desktop">
+						<span class="controle superior delayLargeTopExtra">Compatible avec <br> Contrôleur <div class="line1"></div><div class="circle1"></div></span>
+						<span class="controle inferior delayLargeBottomExtra">Fabriqué avec <br> Silicone de haute qualité<div class="line2"></div><div class="circle2"></div></span>
+					</div>
+				</div>
+			</section>
+	
+			<!--------------- ABOUT ------------------------>
+			<section class="about-container section grid">
+				<div class="about-content">
+					<div class="data-about-img">
+						<img class="about-img" src="/images/about-img.png" alt="images détaillées du contrôleur noir PlayStation 4">
+					</div>
+					<div class="about-data">
+						<h2 class="about-home-title section-title">Qualité et Authenticité</h2>
+						<p class="about-home-description">Nous sommes fiables et authentiques dans nos services. Votre contrôleur PlayStation n'est pas limité à votre console, avec le Bluetooth intégré supportant iOS, Android et les PC. Nous vous recommandons d'acheter un clip de téléphone, cependant.</p>
+						<ul class="about-list">
+							<li>Se sentir à l'aise en main</li>
+							<li>Fonctionne avec PlayStation, iOS, Android, PC </li>
+							<li>Prend en charge les clips de contrôleur PlayStation</li>
+							<li>Facile à utiliser dans n'importe quel environnement</li>
+						</ul>
+						<div class="button-about"><a href="/commande">Acheter maintenant <i class="uil uil-arrow-right btn"></i></a></div>
+					</div>
+				</div>
+			</section>
+	
+			<!--------------- PRODUCT ------------------------>
+			<section class="functions-container section grid">
+				<div class="function-content">
+					<h2 class="function-title section-title"  style="margin-top: 40px;">Nos <span class="section-span">Fonctionnalités</span></h2>
+					<p class="function-description">Série de contrôleurs sans fil PlayStation</p>
+					<div class="card-content">
+						<div class="card">
+							<img class="icone-animation" src="/images/bx-rocket.png" alt="icone de fusée bleue">
+							<h3>VELOCITY</h3>
+							<div class="line-function"></div><div class="circle-function"></div>
+						</div>
+						<div class="card">
+							<img class="icone-animation" src="/images/bxs-battery-charging.png" alt="icone de batterie de téléphone bleue">
+							<h3>DURABLE</h3>
+							<div class="line-function"></div><div class="circle-function"></div>
+						</div>
+						<div class="card">
+							<img class="icone-animation" src="/images/bx-bluetooth.png" alt="icone du Bluetooth bleu">
+							<h3>Bluetooth</h3>
+							<div class="line-function"></div><div class="circle-function"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+	
+			<!--------------- TOP ------------------------>
+			<section class="top section grid">
+				<div class="top-content">
+					<h2 class="top-title section-title delaySmall">Meilleur contrôleur <span class="section-span">maintenant</span></h2>
+					<p class="top-description delayMedium">Contrôleur sans fil Elite PlayStation Series 2</p>
+					<div class="top-content-card">
+						<CardProduct 
+						imageSrc="/images/Controller-1.png" 
+						altText="contrôleur PlayStation 4 noir" 
+						title="Contrôleur PS4" 
+						rating={3} 
+						reviews={15} 
+						price="€ 200" 
+						link="/produits#ps4" 
+						/>
+						<CardProduct 
+						imageSrc="/images/Controller-1.png" 
+						altText="contrôleur PlayStation 4 blanc" 
+						title="Contrôleur PS5" 
+						rating={5} 
+						reviews={30} 
+						price="€ 400" 
+						link="/produits#ps5" 
+						/>
+						<CardProduct 
+						imageSrc="/images/Controller-3.png" 
+						altText="contrôleur PlayStation 4 blanc" 
+						title="Contrôleur Squid" 
+						rating={6} 
+						reviews={43} 
+						price="€ 550" 
+						link="/produits#squid" 
+						/>
+					</div>
+				</div>
+			</section>
+	
+			<!--------------- FAQ ------------------------>
+			<section class="faq faq-container section grid" id="faq">
+				<h5 class="sub-title">ACHETER ET SUIVRE SÉCURITAIREMENT</h5>
+				<h2 class="faq-title section-title">Questions <span class="section-span">Fréquentes</span>
+				</h2>
+				<p class="faq-description">Nous savons que vous avez certaines questions en tête, nous avons essayé de lister les plus importantes.</p>
+				<div class="faq-content">
+					<div class="faq-one">
+						<hr class="hr-line">
+						<h1 class="faq-page">Quels sont les modes de paiement acceptés ?</h1>
+						<div class="faq-body">
+							<p>Nous offrons une variété de modes de paiement sécurisés pour votre achat, y compris les cartes de crédit, PayPal et d'autres options de paiement en ligne.</p>
+						</div>
+					</div>
+					<hr class="hr-line">
+					<div class="faq-two">
+						<h1 class="faq-page">Comment puis-je entrer en contact ?</h1>
+						<div class="faq-body">
+							<p>Vous pouvez nous contacter par téléphone, email ou via notre formulaire de contact sur le site web. Nous sommes toujours prêts à vous aider.</p>
+						</div>
+					</div>
+					<hr class="hr-line">
+					<div class="faq-three">  
+						<h1 class="faq-page">Avez-vous des remises ?</h1>
+						<div class="faq-body">
+							<p>Oui, nous offrons régulièrement des remises et des promotions sur nos produits. Assurez-vous de vérifier notre page d'accueil ou de vous inscrire à notre newsletter pour rester informé.</p>
+						</div>
+					</div>
+					<hr class="hr-line">
+					<div class="faq-three">  
+						<h1 class="faq-page">Quelle garantie ai-je ?</h1>
+						<div class="faq-body">
+							<p>Tous nos produits sont garantis contre les défauts de fabrication pendant une période de temps spécifiée. Veuillez consulter notre politique de garantie pour plus de détails.</p>
+						</div>
+					</div>
+					<hr class="hr-line">
+					<div class="faq-three">  
+						<h1 class="faq-page">Puis-je payer en plusieurs fois ?</h1>
+						<div class="faq-body">
+							<p>Oui, nous offrons des options de paiement échelonnées pour certaines de nos consoles et accessoires. Veuillez contacter notre équipe pour plus d'informations.</p>
+						</div>
+					</div>
+					<hr class="hr-line">
+				</div>
+			</section>
+		</main>
+	</Layout>

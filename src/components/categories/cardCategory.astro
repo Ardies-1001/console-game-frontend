@@ -1,0 +1,19 @@
+---
+
+const { imageSrc, altText, title, rating, reviews, link } = Astro.props;
+---
+
+<div class="top-card">
+  <div class="border-top"></div>
+  <!-- .card-controle -->
+  <img class="img-controller-top card-animation" src={imageSrc} alt={altText} style="width: 236px; height:186px; ">
+  <h5 class="card-title">{title}</h5>
+  <div class="estrela">
+    {Array.from({ length: rating }).map((_, index) => (
+      <img src="/images/estrela.png" alt="estrela amarela de avaliação" />
+    ))}
+    <p>({reviews})</p>
+  </div>
+  <p class="top-money"><a href={link}>Voir la catégorie</a></p>
+  <div><a class="cart" href={link}><i class="uil uil-shopping-cart icon-cart"></i></a></div>
+</div>

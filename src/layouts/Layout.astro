@@ -1,0 +1,51 @@
+--- 
+import Footer from '../components/partials/Footer.astro';
+import Header from '../components/partials/Header.astro';
+
+interface Props {
+	title: string;
+}
+
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" href="/images/logo.svg" /> 
+		<meta name="generator" content={Astro.generator} />		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />		
+		<meta name="author" content="Ardies Lebon ADJANAOHOUN"/>
+		<meta name="description" content="Site de vente des consoles de jeux vidéo."/>
+		<link rel="canonical" href="https://playstation-4.vercel.app/"/>
+		<meta name="keywords" content="E-commerce, GodFather, Nitendo, Game, PSP, PPSSPP PlayStation"/>
+		<meta name="theme-color" content="#09071c"/>
+		<meta name="copyright" content="https://ardies-lebon.carrd.co" />
+		<meta property="og:image" content="/images/playstation.png"/>
+		<meta property="og:title" content="PlayStation"/>
+		<meta property="og:description" content="E-commerce Website PlayStation"/>
+		<meta property="og:type" content="website"/>
+		<meta property="og:url" content="https://playstation-4.vercel.app/"/>
+		<link rel="stylesheet" href="/css/style.css"/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+		href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+		rel="stylesheet"/>
+		<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
+		<title>{title} | GodfatherGame</title>
+	</head>
+	<body>
+		<Header />
+		<slot />
+		<Footer /> 
+		<!------- SCROLL REVEAL --------------->
+		<script src="https://unpkg.com/scrollreveal"></script> 
+		<!------- JS --------------->
+		<script is:inline src="/js/main.js"></script>   
+	
+	</body>
+</html>

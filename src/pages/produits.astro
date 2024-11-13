@@ -1,0 +1,36 @@
+---
+import CardProduct from '../components/produits/cardProduct.astro';
+import Layout from "../layouts/Layout.astro";
+
+const response = await fetch(`${import.meta.env.STRAPI_URL}/api/produits?populate=*`);
+const { data: produits } = await response.json();
+
+---
+
+<Layout title="Produits">
+    <main class="main">
+        <section class="top section grid">
+            <div class="top-content" style="margin-top:23%">
+                <h2 class="top-title section-title delaySmall">Meilleur contrôleur <span class="section-span">maintenant</span></h2>
+                <p class="top-description delayMedium">Contrôleur sans fil Elite PlayStation Series 2</p>
+                <div class="top-content-card">
+                    
+                    { produits.map((product:any) => (
+                        <CardProduct 
+                            imageSrc={`${import.meta.env.STRAPI_URL}${product.attributes.image.data[0].attributes.url}`}
+                            altText="contrôleur PlayStation 4 noir" 
+                            title={product.attributes.titre} 
+                            rating={5} 
+                            reviews={15} 
+                            price={`${product.attributes.prix} ${import.meta.env.PUBLIC_DEVISE}`}
+                            link={`/detailProduit-${product.id}`}
+                        />
+                    )) }
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+                    
+
+    

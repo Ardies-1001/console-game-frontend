@@ -1,0 +1,39 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Confirmation">
+
+  <style>
+    .envio{
+      text-align: center;
+      margin-bottom: 8rem;
+      padding-top: 8rem;
+    }
+
+    .envio h2{
+      margin: var(--mb-1-5) 0;
+    }
+
+    .envio img{
+      width: 8rem;
+    }
+
+    @media(min-width: 768px){
+      .envio img{
+        width: auto;
+      }
+    }
+  </style>
+
+    <main class="main">
+        <section class="envio">
+          <div>
+            <img src="/images/envio.svg" alt="icone de ok do email enviado.">
+            <h2 class="section-title">Thank you for your <span class="section-span">email</span>!</h2>
+            <p class="section-description">your confirm have been sent  to your email</p>
+          </div>
+        </section>
+      </main>
+
+</Layout>
